@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SupportHub.DATA.Data;
-using SupportHub.DATA.Repositories.Interfaces;
+﻿using ClientTicketingSystem.DATA.Data;
+using ClientTicketingSystem.DATA.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace SupportHub.DATA.Repositories;
+namespace ClientTicketingSystem.DATA.Repositories;
 public class GenericRepository <T>: IGenericRepository <T> where T : class
 {
     protected AppDbContext _context;

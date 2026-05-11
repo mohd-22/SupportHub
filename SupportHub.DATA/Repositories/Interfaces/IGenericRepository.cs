@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace SupportHub.DATA.Repositories.Interfaces;
+namespace ClientTicketingSystem.DATA.Repositories.Interfaces;
 public interface IGenericRepository <T> where T : class
 {
     Task<IEnumerable<T>> GetAllAsync();

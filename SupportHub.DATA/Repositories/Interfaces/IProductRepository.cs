@@ -1,6 +1,6 @@
-﻿using SupportHub.CORE.Models;
+﻿using ClientTicketingSystem.CORE.Models;
 
-namespace SupportHub.DATA.Repositories.Interfaces
+namespace ClientTicketingSystem.DATA.Repositories.Interfaces
 {
     public interface IProductRepository : IGenericRepository<Product>
     {

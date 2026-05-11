@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SupportHub.CORE.Models;
+﻿using ClientTicketingSystem.CORE.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace SupportHub.DATA.Data;
+namespace ClientTicketingSystem.DATA.Data;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

@@ -1,8 +1,8 @@
-﻿using SupportHub.CORE.Models;
-using SupportHub.DATA.Data;
-using SupportHub.DATA.Repositories.Interfaces;
+﻿using ClientTicketingSystem.CORE.Models;
+using ClientTicketingSystem.DATA.Data;
+using ClientTicketingSystem.DATA.Repositories.Interfaces;
 
-namespace SupportHub.DATA.Repositories;
+namespace ClientTicketingSystem.DATA.Repositories;
 public class CommentRepository : GenericRepository<Comment>, ICommentRepository
 {
     public CommentRepository(AppDbContext context) : base(context) { }

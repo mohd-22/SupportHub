@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SupportHub.DATA\ClientTicketingSystem.DATA.csproj" />
     <ProjectReference Include="..\SupportHub.DATA\SupportHub.DATA.csproj" />
   </ItemGroup>
 

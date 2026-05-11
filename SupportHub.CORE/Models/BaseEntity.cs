@@ -1,4 +1,4 @@
-﻿namespace SupportHub.CORE.Models;
+﻿namespace ClientTicketingSystem.CORE.Models;
 public class BaseEntity
 {
     public Guid Id { get; set; }

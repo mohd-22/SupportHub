@@ -1,4 +1,4 @@
-﻿namespace SupportHub.CORE.Models.Enums;
+﻿namespace ClientTicketingSystem.CORE.Models.Enums;
 public enum Sex
 {
     Male = 1,

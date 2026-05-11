@@ -1,4 +1,4 @@
-﻿namespace SupportHub.CORE.Models;
+﻿namespace ClientTicketingSystem.CORE.Models;
 public class ProductModule : BaseEntity
 {
     public string Name { get; set; } = string.Empty;

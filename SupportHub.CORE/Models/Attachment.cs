@@ -1,4 +1,4 @@
-﻿namespace SupportHub.CORE.Models;
+﻿namespace ClientTicketingSystem.CORE.Models;
 public class Attachment : BaseEntity
 {
     public string FileName { get; set; } = string.Empty;

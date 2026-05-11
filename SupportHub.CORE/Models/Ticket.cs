@@ -1,6 +1,6 @@
-﻿using SupportHub.CORE.Models.Enums;
+﻿using ClientTicketingSystem.CORE.Models.Enums;
 
-namespace SupportHub.CORE.Models;
+namespace ClientTicketingSystem.CORE.Models;
 public class Ticket : BaseEntity
 {
     public string Title { get; set; } = string.Empty;

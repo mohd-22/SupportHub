@@ -1,5 +1,5 @@
+using ClientTicketingSystem.DATA.Data;
 using Microsoft.EntityFrameworkCore;
-using SupportHub.DATA.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SupportHub.CORE\ClientTicketingSystem.CORE.csproj" />
     <ProjectReference Include="..\SupportHub.CORE\SupportHub.CORE.csproj" />
   </ItemGroup>
 

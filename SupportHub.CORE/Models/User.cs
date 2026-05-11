@@ -1,6 +1,6 @@
-﻿using SupportHub.CORE.Models.Enums;
+﻿using ClientTicketingSystem.CORE.Models.Enums;
 
-namespace SupportHub.CORE.Models;
+namespace ClientTicketingSystem.CORE.Models;
 public class User : BaseEntity
 {
     public string PhoneNumber { get; set; } = string.Empty;

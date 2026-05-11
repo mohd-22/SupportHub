@@ -1,4 +1,4 @@
-﻿namespace SupportHub.CORE.Models;
+﻿namespace ClientTicketingSystem.CORE.Models;
 public class Comment : BaseEntity
 {
     public string CommentText { get; set; } = string.Empty;
