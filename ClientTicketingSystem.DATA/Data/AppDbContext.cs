@@ -1,4 +1,5 @@
 ﻿using ClientTicketingSystem.CORE.Models;
+using ClientTicketingSystem.CORE.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClientTicketingSystem.DATA.Data;
@@ -41,5 +42,23 @@ public class AppDbContext : DbContext
              .WithMany(u => u.Comments)
              .HasForeignKey(c => c.CreatedBy);
         });
+
+        modelBuilder.Entity<User>().HasData(
+          new User
+          {
+              Id = Guid.Parse("11111111-1111-1111-1111-111111111111"),
+              FullName = "Moahmmed Alassi",
+              UserName = "admin",
+              Email = "admin@supporthub.com",
+              PhoneNumber = "0799999999",
+              Address = "Amman, Jordan",
+              HashedPassword = "AQAAAAIAAYagAAAAEKkB6aXFw8CerrUrN0OsWO0pBbCJt/mSGfsTJ9XMP0kCkUiuUZbTHez2JbMQ36JSLA==",
+              Role = UserRole.Manager,
+              IsActive = true,
+              DateOfBirth = new DateTime(1995, 5, 10),
+              Gender = Sex.Male,
+              CreatedDate = DateTime.Now
+          }
+        );
     }
 }

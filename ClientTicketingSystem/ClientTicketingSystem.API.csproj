@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.26">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,12 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SupportHub.DATA\ClientTicketingSystem.DATA.csproj" />
-    <ProjectReference Include="..\SupportHub.DATA\SupportHub.DATA.csproj" />
+    <ProjectReference Include="..\ClientTicketingSystem.Application\ClientTicketingSystem.Application.csproj" />
+    <ProjectReference Include="..\ClientTicketingSystem.CORE\ClientTicketingSystem.CORE.csproj" />
+    <ProjectReference Include="..\ClientTicketingSystem.DATA\ClientTicketingSystem.DATA.csproj" />
   </ItemGroup>
 
 </Project>

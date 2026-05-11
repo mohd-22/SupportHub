@@ -7,6 +7,7 @@ public class User : BaseEntity
     public string FullName { get; set; } = string.Empty;
     public string UserName { get; set; } = string.Empty;
     public string Address { get; set; } = string.Empty;
+    public string HashedPassword { get; set; } = string.Empty;
     public UserRole Role { get; set; } = UserRole.Client;
     public string ImageUrl { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;

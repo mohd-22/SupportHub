@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SupportHub.DATA.Migrations
+namespace ClientTicketingSystem.DATA.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,6 +37,7 @@ namespace SupportHub.DATA.Migrations
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -175,6 +176,11 @@ namespace SupportHub.DATA.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Address", "CreatedBy", "CreatedDate", "DateOfBirth", "Email", "FullName", "Gender", "HashedPassword", "ImageUrl", "IsActive", "LastUpdatedBy", "LastUpdatedDate", "PhoneNumber", "Role", "UserName" },
+                values: new object[] { new Guid("11111111-1111-1111-1111-111111111111"), "Amman, Jordan", new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2026, 5, 12, 0, 34, 20, 441, DateTimeKind.Local).AddTicks(6741), new DateTime(1995, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@supporthub.com", "Moahmmed Alassi", 1, "AQAAAAIAAYagAAAAEKkB6aXFw8CerrUrN0OsWO0pBbCJt/mSGfsTJ9XMP0kCkUiuUZbTHez2JbMQ36JSLA==", "", true, null, null, "0799999999", 1, "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attachments_TicketId",

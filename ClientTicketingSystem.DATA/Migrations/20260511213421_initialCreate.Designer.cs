@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace SupportHub.DATA.Migrations
+namespace ClientTicketingSystem.DATA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260511124557_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260511213421_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace SupportHub.DATA.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Attachment", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Attachment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace SupportHub.DATA.Migrations
                     b.ToTable("Attachments");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Comment", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Comment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +95,7 @@ namespace SupportHub.DATA.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Product", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,7 +126,7 @@ namespace SupportHub.DATA.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.ProductModule", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.ProductModule", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,7 +162,7 @@ namespace SupportHub.DATA.Migrations
                     b.ToTable("ProductModules");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Ticket", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Ticket", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -222,7 +222,7 @@ namespace SupportHub.DATA.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.User", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,6 +252,10 @@ namespace SupportHub.DATA.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<string>("HashedPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -279,11 +283,30 @@ namespace SupportHub.DATA.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("11111111-1111-1111-1111-111111111111"),
+                            Address = "Amman, Jordan",
+                            CreatedBy = new Guid("00000000-0000-0000-0000-000000000000"),
+                            CreatedDate = new DateTime(2026, 5, 12, 0, 34, 20, 441, DateTimeKind.Local).AddTicks(6741),
+                            DateOfBirth = new DateTime(1995, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin@supporthub.com",
+                            FullName = "Moahmmed Alassi",
+                            Gender = 1,
+                            HashedPassword = "AQAAAAIAAYagAAAAEKkB6aXFw8CerrUrN0OsWO0pBbCJt/mSGfsTJ9XMP0kCkUiuUZbTHez2JbMQ36JSLA==",
+                            ImageUrl = "",
+                            IsActive = true,
+                            PhoneNumber = "0799999999",
+                            Role = 1,
+                            UserName = "admin"
+                        });
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Attachment", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Attachment", b =>
                 {
-                    b.HasOne("SupportHub.CORE.Models.Ticket", "Ticket")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.Ticket", "Ticket")
                         .WithMany("Attachments")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -292,15 +315,15 @@ namespace SupportHub.DATA.Migrations
                     b.Navigation("Ticket");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Comment", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Comment", b =>
                 {
-                    b.HasOne("SupportHub.CORE.Models.User", "Creator")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.User", "Creator")
                         .WithMany("Comments")
                         .HasForeignKey("CreatedBy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SupportHub.CORE.Models.Ticket", "Ticket")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.Ticket", "Ticket")
                         .WithMany("Comments")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -311,9 +334,9 @@ namespace SupportHub.DATA.Migrations
                     b.Navigation("Ticket");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.ProductModule", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.ProductModule", b =>
                 {
-                    b.HasOne("SupportHub.CORE.Models.Product", "Product")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.Product", "Product")
                         .WithMany("Modules")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -322,24 +345,24 @@ namespace SupportHub.DATA.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Ticket", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Ticket", b =>
                 {
-                    b.HasOne("SupportHub.CORE.Models.User", "AssignedUser")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.User", "AssignedUser")
                         .WithMany("TicketsAssigned")
                         .HasForeignKey("AssignedTo")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SupportHub.CORE.Models.User", "Client")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.User", "Client")
                         .WithMany("TicketsCreated")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SupportHub.CORE.Models.Product", null)
+                    b.HasOne("ClientTicketingSystem.CORE.Models.Product", null)
                         .WithMany("Tickets")
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("SupportHub.CORE.Models.ProductModule", "ProductModule")
+                    b.HasOne("ClientTicketingSystem.CORE.Models.ProductModule", "ProductModule")
                         .WithMany()
                         .HasForeignKey("ProductModuleId");
 
@@ -350,21 +373,21 @@ namespace SupportHub.DATA.Migrations
                     b.Navigation("ProductModule");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Product", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Product", b =>
                 {
                     b.Navigation("Modules");
 
                     b.Navigation("Tickets");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.Ticket", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.Ticket", b =>
                 {
                     b.Navigation("Attachments");
 
                     b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("SupportHub.CORE.Models.User", b =>
+            modelBuilder.Entity("ClientTicketingSystem.CORE.Models.User", b =>
                 {
                     b.Navigation("Comments");
 
